@@ -4,7 +4,8 @@ class Parameters:
     def __init__(self,irrelevant):
 
         self.C = 100
-        self.sig_y = 1.
+        self.sig_y = 1.5
+        self.sig_w = 2.
         self.num_components = 1500
         self.sparse_proportion = 3/4
         self.x_dim = 4

@@ -4,10 +4,11 @@ from matplotlib import pyplot as plt
 
 class DataGenerator:
 
-    def __init__(self,C,sig_y,t_max,num_components,sparse_proportion,x_dim,num_irr_dims,num_dense,num_sparse,num_range):
+    def __init__(self,C,sig_y, sig_w,t_max,num_components,sparse_proportion,x_dim,num_irr_dims,num_dense,num_sparse,num_range):
 
         self.C = C
         self.sig_y = sig_y
+        self.sig_w = sig_w
         self.t_max = t_max
         self.num_components = num_components
         self.sparse_proportion = sparse_proportion
@@ -15,7 +16,7 @@ class DataGenerator:
         self.num_sparse_range = range(num_sparse - num_range, num_sparse)
         self.x_dim = x_dim
 
-        self.w = np.random.rand(x_dim)
+        self.w = np.random.rand(x_dim) * self.sig_w
         self.irr_dims = np.random.choice(range(x_dim),num_irr_dims)
         self.w[self.irr_dims] = 0
 
